@@ -347,15 +347,15 @@ class Widget extends BaseWidget {
 
 		// 流量达到TB级别,解锁尊贵的3位小数点显示
 		if (flow/1048576 >= 1){
-			return { amount: (remain / 1048576).toFixed(3), unit: 'TB' };
+			return { num: (flow / 1048576).toFixed(3), unit: 'TB' };
 		}
 		// GB级别
 		if (remain/1024 >= 1) {
-			return { amount: (remain / 1024).toFixed(2), unit: 'GB' };
+			return { num: (flow / 1024).toFixed(2), unit: 'GB' };
 		}
 		
 		// MB
-		return { amount: remain.toFixed(2), unit: 'MB' };
+		return { num: flow.toFixed(2), unit: 'MB' };
 	}
 
 	/**
