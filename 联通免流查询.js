@@ -363,6 +363,7 @@ class Widget extends BaseWidget {
 	 * @returns 
 	 */
 	loadDetailInfo = async () => {
+		this.httpGet.logable = true;
 		const response = await this.httpGet(
 			this.defaultPreference.fetchUrl.detail,
 			{
