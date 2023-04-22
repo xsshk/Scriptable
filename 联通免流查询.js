@@ -350,7 +350,7 @@ class Widget extends BaseWidget {
 			return { num: (flow / 1048576).toFixed(3), unit: 'TB' };
 		}
 		// GB级别
-		if (remain/1024 >= 1) {
+		if (flow/1024 >= 1) {
 			return { num: (flow / 1024).toFixed(2), unit: 'GB' };
 		}
 		
