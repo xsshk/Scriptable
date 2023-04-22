@@ -367,7 +367,7 @@ class Widget extends BaseWidget {
 			this.defaultPreference.fetchUrl.detail,
 			{
 				useCache: this.reset ?? false,
-				dataSuccess: (res) => res.code == 'Y',
+				dataSuccess: (res) => res.code == '0000',
 				headers: {
 					'Host': 'm.client.10010.com',
 					'User-Agent': 'ChinaUnicom.x CFNetwork iOS/16.3 unicom{version:iphone_c@10.0100}',
