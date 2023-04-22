@@ -379,20 +379,20 @@ class Widget extends BaseWidget {
 		if (response?.code == '0000') {
 			// 取结果中的这些字段
 			// const { feeResource, voiceResource, flowResource } = response;
-			const {packageName,summary,MlResources} = response
-			
+            const allFreeFlow = response.summary.freeFlow
+            const publicFree = response.MlResources[0].userResource
+            const allFlow = response.sum
+
 			// 公免流量
-			let publicFreeFlowFormat = this.formatFlow(MlResources.userResource)
+			let publicFreeFlowFormat = this.formatFlow(publicFree)
 			this.publicFreeFlow.balance = publicFreeFlowFormat.num
 			this.publicFreeFlow.unit = publicFreeFlowFormat.unit
 			// 私免流量
-			let privateFreeFlowNum= summary.freeFlow - MlResources.userResource
-			let privateFreeFlowFormat = this.formatFlow(privateFreeFlowNum)
+			let privateFreeFlowFormat = this.formatFlow(allFreeFlow - publicFree)
 			this.privateFreeFlow.balance = privateFreeFlowFormat.num
 			this.privateFreeFlow.unit = privateFreeFlowFormat.unit
 			// 已用流量
-			let usedflowFlowNum = summary.sum - summary.freeFlow
-			let usedflowFormat = this.formatFlow(usedflowFlowNum)
+			let usedflowFormat = this.formatFlow(allFlow - allFreeFlow)
 			this.usedflow.balance = usedflowFormat.num
 			this.usedflow.unit = usedflowFormat.unit
 			
