@@ -382,35 +382,17 @@ class Widget extends BaseWidget {
 			const {packageName,summary,MlResources} = response
 			
 			// 公免流量
-			this.publicFreeFlow = {
-				title: '🆓 公免流量：',
-				balance: MlResources?.userResource,
-				percent: 0,
-				unit: "MB",
-			};
+			let publicFreeFlowFormat = this.formatFlow(summary?.MlResources?.userResource)
+			this.publicFreeFlow.balance = publicFreeFlowFormat.num
+			this.publicFreeFlow.unit = publicFreeFlowFormat.unit
 			// 私免流量
-			this.privateFreeFlow = {
-				title: '🏧 包免流量：',
-				// 将全部免流中公面减掉,就全剩的是定向免流
-				balance: summary?.freeFlow - MlResources?.userResource,
-				percent: 0,
-				unit: "MB",
-			};
-			
+			let privateFreeFlowFormat = this.formatFlow(summary?.freeFlow - summary?.MlResources?.userResource)
+			this.privateFreeFlow.balance = privateFreeFlowFormat.num
+			this.privateFreeFlow.unit = privateFreeFlowFormat.unit
 			// 已用流量
-			this.usedflow = {
-				title: '📶 正常流量：',
-				balance: summary?.sum - summary?.freeFlow,
-				unit: "MB",
-			};
-
-			// 处理可能的故障
-			if (this.usedflow.balance === NaN)
-				this.usedflow.balance = 0
-			if (this.privateFreeFlow.balance === NaN)
-				this.privateFreeFlow.balance = 0
-			if (this.publicFreeFlow.balance === NaN)
-				this.publicFreeFlow.balance = 0
+			let usedflowFormat = this.formatFlow(summary?.sum - summary?.freeFlow)
+			this.usedflowFormat.balance = usedflowFormat.num
+			this.usedflowFormat.unit = usedflowFormat.unit
 			
 
 			console.log(`正常流量：`);
