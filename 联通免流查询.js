@@ -1,4 +1,4 @@
-// Variables used by Scriptable. 
+// Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
 // icon-color: red; icon-glyph: mobile-alt;
 /**
@@ -44,6 +44,19 @@ class Widget extends BaseWidget {
 		refreshTimeDayColor: '#000000',
 		refreshTimeNightColor: '#000000',
 	};
+
+	// fee = {
+	// 	title: '📱 剩余话费：',
+	// 	balance: 0,
+	// 	unit: '元',
+	// };
+
+	// voice = {
+	// 	title: '⏳ 剩余语音：',
+	// 	balance: 0,
+	// 	percent: 0,
+	// 	unit: '分钟',
+	// };
 
 
 	privateFreeFlow = {
