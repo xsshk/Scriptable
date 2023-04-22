@@ -382,17 +382,19 @@ class Widget extends BaseWidget {
 			const {packageName,summary,MlResources} = response
 			
 			// 公免流量
-			let publicFreeFlowFormat = this.formatFlow(summary?.MlResources?.userResource)
+			let publicFreeFlowFormat = this.formatFlow(MlResources.userResource)
 			this.publicFreeFlow.balance = publicFreeFlowFormat.num
 			this.publicFreeFlow.unit = publicFreeFlowFormat.unit
 			// 私免流量
-			let privateFreeFlowFormat = this.formatFlow(summary?.freeFlow - summary?.MlResources?.userResource)
+			let privateFreeFlowNum= summary.freeFlow - MlResources.userResource
+			let privateFreeFlowFormat = this.formatFlow(privateFreeFlowNum)
 			this.privateFreeFlow.balance = privateFreeFlowFormat.num
 			this.privateFreeFlow.unit = privateFreeFlowFormat.unit
 			// 已用流量
-			let usedflowFormat = this.formatFlow(summary?.sum - summary?.freeFlow)
-			this.usedflowFormat.balance = usedflowFormat.num
-			this.usedflowFormat.unit = usedflowFormat.unit
+			let usedflowFlowNum = summary.sum - summary.freeFlow
+			let usedflowFormat = this.formatFlow(usedflowFlowNum)
+			this.usedflow.balance = usedflowFormat.num
+			this.usedflow.unit = usedflowFormat.unit
 			
 
 			console.log(`正常流量：`);
