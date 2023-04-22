@@ -60,21 +60,21 @@ class Widget extends BaseWidget {
 
 
 	privateFreeFlow = {
-		title: '🆓 定向流量：',
+		title: '🤙 定向流量：',
 		balance: 0,
 		percent: 0,
 		unit: 'MB',
 	};
 
 	usedflow = {
-		title: '📶 正常流量：',
+		title: '👎 正常流量：',
 		balance: 0,
 		percent: 0,
 		unit: 'MB',
 	};
 
 	publicFreeFlow = {
-		title: '🏧 公免流量：',
+		title: '👍 公免流量：',
 		balance: 0,
 		percent: 0,
 		unit: 'MB',
@@ -262,7 +262,7 @@ class Widget extends BaseWidget {
 		const refreshTimeTextColor = Color.dynamic(new Color(this.refreshTimeDayColor()), new Color(this.refreshTimeNightColor()));
 		const descSpacer = 3;
 		const lineSpacer = 4;
-		const descLeftSpacer = 22;
+		const descLeftSpacer = 16;
 
 		// 示例使用流量
 		// ========================================
@@ -317,7 +317,7 @@ class Widget extends BaseWidget {
 		btStack.addSpacer(6);
 		image = this.getSFSymbol('goforward');
 		let imgSpan = btStack.addImage(image);
-		imgSpan.imageSize = new Size(9, 9);
+		imgSpan.imageSize = new Size(13, 13);
 		imgSpan.tintColor = refreshTimeTextColor
 		btStack.addSpacer(4);
 		if (this.success) {
@@ -325,12 +325,12 @@ class Widget extends BaseWidget {
 		}
 		textSpan = btStack.addText(`${this.getDateStr(new Date(), 'HH:mm')}`);
 		textSpan.textColor = refreshTimeTextColor
-		textSpan.font = Font.lightSystemFont(10);
+		textSpan.font = Font.lightSystemFont(14);
 		btStack.addSpacer();
 		// 设置联通角标,大小14*14
 		image = await this.getImageByUrl(`${remoteRoot}/img/ic_logo_10010.png`);
 		imgSpan = btStack.addImage(image);
-		imgSpan.imageSize = new Size(14, 14);
+		imgSpan.imageSize = new Size(32, 32);
 		stack.addSpacer();
 		//=================================
 		return widget;
