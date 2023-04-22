@@ -378,12 +378,12 @@ class Widget extends BaseWidget {
 		if (response?.code == 'Y') {
 			// 取结果中的这些字段
 			// const { feeResource, voiceResource, flowResource } = response;
-			const {packageName,summary} = response
+			const {packageName,summary,MlResources} = response
 			
 			// 公免流量
 			this.publicFreeFlow = {
 				title: '🆓 公免流量：',
-				balance: summary?.MlResources?.userResource,
+				balance: MlResources?.userResource,
 				percent: 0,
 				unit: "MB",
 			};
@@ -391,7 +391,7 @@ class Widget extends BaseWidget {
 			this.privateFreeFlow = {
 				title: '🏧 包免流量：',
 				// 将全部免流中公面减掉,就全剩的是定向免流
-				balance: summary?.freeFlow - summary?.MlResources?.userResource,
+				balance: summary?.freeFlow - MlResources?.userResource,
 				percent: 0,
 				unit: "MB",
 			};
