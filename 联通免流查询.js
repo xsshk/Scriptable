@@ -375,7 +375,7 @@ class Widget extends BaseWidget {
 				}
 			}
 		);
-		if (response?.code == 'Y') {
+		if (response?.code == '0000') {
 			// 取结果中的这些字段
 			// const { feeResource, voiceResource, flowResource } = response;
 			const {packageName,summary,MlResources} = response
