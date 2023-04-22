@@ -355,7 +355,7 @@ class Widget extends BaseWidget {
 		}
 		
 		// MB
-		return { num: flow.toFixed(2), unit: 'MB' };
+		return { num: (flow / 1).toFixed(2), unit: 'MB' };
 	}
 
 	/**
