@@ -247,7 +247,7 @@ class Widget extends BaseWidget {
 		stack.setPadding(4, 12, 0, 12);
 		// 删除背景图片
 		let image = await this.getImageByUrl(`${remoteRoot}/img/bg_doraemon_1.png`);
-		stack.backgroundImage = image;
+		//stack.backgroundImage = image;
 		stack.size = new Size(widgetSize.width, widgetSize.height);
 		stack.layoutVertically();
 		stack.addSpacer();
